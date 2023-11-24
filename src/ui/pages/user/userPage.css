@@ -1,0 +1,28 @@
+#user-page {
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+}
+
+#user-page section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+#user-page #guess-nums {
+  flex-grow: 2;
+}
+
+#user-page #group-buttons ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 25px 30px;
+}
+
+#user-page section:nth-child(1) ul .button-rounded {
+  margin-bottom: 18px;
+}

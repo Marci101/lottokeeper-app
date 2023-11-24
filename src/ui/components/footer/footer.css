@@ -17,3 +17,7 @@
 #footer p:last-child {
   margin-top: 0;
 }
+
+#footer p:last-child a {
+  color: inherit;
+}

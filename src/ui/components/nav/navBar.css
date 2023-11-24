@@ -5,59 +5,44 @@
 
 #nav-bar ul {
   display: flex;
-  align-items: center;
   list-style: none;
   margin: 0;
   padding: 25px 30px;
 }
 
-#nav-bar ul li a {
-  text-decoration: none;
-  color: inherit;
-}
-
-#nav-bar ul li:not(:first-child) a {
-  padding: 0.75rem 1.95rem;
-  border: 1px solid black;
-  border-radius: 26px;
-  font-size: 0.95rem;
-  font-weight: bold;
-  color: #334155;
-}
-
-#nav-bar ul li:first-child {
+#nav-bar ul #logo {
   margin-right: auto;
   font-size: 2.5rem;
   font-weight: 900;
   line-height: 1.0;
 }
 
-#nav-bar ul li:nth-child(2) a {
-  background-color: #ffe01b;
+#nav-bar ul #logo a {
+  text-decoration: none;
+  color: inherit;
 }
 
-#nav-bar ul li:nth-child(3) {
-  margin-left: 15px;
+#nav-bar ul li.button-rounded:nth-child(2) {
+  margin-right: 15px;
 }
-
 
 @media only screen and (max-width: 580px) {
   #nav-bar ul {
     flex-wrap: wrap;
-    row-gap: 23px;
-    padding: 25px 0;
+    row-gap: 10px;
+    padding: 13px 0;
   }
 
-  #nav-bar ul li:first-child {
+  #nav-bar ul #logo {
     width: 100%;
     text-align: center;
   }
 
-  #nav-bar ul li:nth-child(2) {
+  #nav-bar ul li.button-rounded:nth-child(2) {
     margin-left: auto;
   }
 
-  #nav-bar ul li:nth-child(3) {
+  #nav-bar ul li.button-rounded:nth-child(3) {
     margin-right: auto;
   }
 }

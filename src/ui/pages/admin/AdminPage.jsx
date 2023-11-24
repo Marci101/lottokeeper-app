@@ -5,7 +5,9 @@ export default function AdminPage() {
     <div id='admin-page'>
       This is the Admin Page Block!
       <div>
-        <Link to='lottery-draw'>Start Lottery Draw!</Link>
+        <Link to='lottery-draw'>
+          Start Lottery Draw!
+        </Link>
       </div>
     </div>
   );

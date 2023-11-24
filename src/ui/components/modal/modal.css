@@ -1,0 +1,26 @@
+#modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #000000bf;
+}
+
+#modal #modal-message {
+  height: fit-content;
+}
+
+#modal #modal-message p {
+  color: #ffffff;
+}
+
+#modal #modal-close {
+  color: #ffffff;
+  cursor: pointer;
+}
