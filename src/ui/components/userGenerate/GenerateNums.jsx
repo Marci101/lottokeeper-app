@@ -11,10 +11,9 @@ export default function GenerateNums() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const numbers = Object.values(userNumbers);
-    numbers.forEach((bet) => {
-      if(isNaN(parseInt(bet))) {
+    numbers.forEach((num) => {
+      if(isNaN(parseInt(num))) {
         alert('Please, enter five numbers! Choose from 1 to 39!');
       }
     })

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../../common/features/modalSlice";
 import { enterUserName } from "../../../common/features/userNameSlice";
@@ -8,6 +8,10 @@ export default function FormYourName(props) {
   const [ userName, setUserName ] = useState("");
   const userNameStored = useSelector((state) => state.yourName.userName);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setUserName(userNameStored);
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,9 +23,10 @@ export default function FormYourName(props) {
     <form onSubmit={submitHandler}>
       <input
         type="text"
-        value={userName || userNameStored}
+        value={userName}
         onChange={(e) => setUserName(e.target.value)}
         placeholder={buttonText === "Enter" ? "Your nickname..." : "Edit your name..."}
+        autoFocus
         name="yourName"
         autoComplete="off"
       />

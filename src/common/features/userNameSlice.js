@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   userName: "",
@@ -10,7 +10,7 @@ export const userNameSlice = createSlice({
   reducers: {
     enterUserName: (state, action) => {
       state.userName = action.payload;
-    },
+    }
   },
 });
 

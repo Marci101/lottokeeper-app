@@ -17,7 +17,9 @@
 }
 
 #modal #modal-message p {
+  line-height: 1.7;
   color: #ffffff;
+  white-space: pre;
 }
 
 #modal #modal-close {
