@@ -23,7 +23,7 @@ export default function UserPage() {
         </ul>
       </section>
       <section id="guess-nums">
-        <p>Let&apos;s go, {userName ? userName : "Fortune Hunter"}</p>
+        <p>Let&apos;s go, {userName ? userName : "Fortune Hunter"}!</p>
         <p>Guess the winning numbers!</p>
         <p>Choose from 1 to 39!</p>
         <GenerateNums />
