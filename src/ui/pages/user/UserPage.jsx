@@ -7,12 +7,11 @@ import ModalPopUp from "../../components/modal/ModalPopUp";
 import "./userPage.css";
 
 export default function UserPage() {
-  const modalMessage = "Welcome, Fortune Hunter!\nPlease, enter your name first!";
   const userName = useSelector((state) => state.yourName.userName);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showModal({isOpen: true, message: modalMessage}));
+    dispatch(showModal({isOpen: true, message: "Welcome, Fortune Hunter!\nPlease, enter your name first!"}));
   }, []);
 
   return (
@@ -29,7 +28,7 @@ export default function UserPage() {
         <p>Choose from 1 to 39!</p>
         <GenerateNums />
       </section>
-      {!userName && <ModalPopUp/>}
+      {!userName && <ModalPopUp withInput={true} />}
     </div>
   );
 }

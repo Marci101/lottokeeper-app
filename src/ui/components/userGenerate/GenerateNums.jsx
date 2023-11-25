@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { showModal } from "../../../common/features/modalSlice";
+import ModalPopUp from '../modal/ModalPopUp';
 
 export default function GenerateNums() {
+  const [error, setError] = useState(false);
   const [userNumbers, setUserNumbers] = useState({});
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -9,15 +14,18 @@ export default function GenerateNums() {
     setUserNumbers({...userNumbers, [name]: value});
   }
 
+  useEffect(() => {
+    dispatch(showModal({isOpen: error, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!"}));
+  }, [error]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const numbers = Object.values(userNumbers);
     numbers.forEach((num) => {
-      if(isNaN(parseInt(num))) {
-        alert('Please, enter five numbers! Choose from 1 to 39!');
+      if(isNaN(parseInt(num)) || numbers.length !== 5) {
+        setError(true);
       }
     })
-    console.log('userNumbers:', userNumbers);
   }
 
   return (
@@ -30,6 +38,7 @@ export default function GenerateNums() {
         <input type="number" name="bet5" value={userNumbers.bet5 || ""} onChange={handleChange} min="1" max="39" required></input>
         <button type="submit">My bet!</button>
       </form>
+      {error && <ModalPopUp setState={setError} />}
     </section>
   );
 }
