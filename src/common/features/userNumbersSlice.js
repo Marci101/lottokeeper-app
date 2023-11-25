@@ -8,12 +8,12 @@ export const userNumbersSlice = createSlice({
   name: "yourNumbers",
   initialState,
   reducers: {
-    storeUserNums: (state, action) => {
+    yourUserNums: (state, action) => {
       state.userNumbers = action.payload;
     }
   },
 });
 
-export const { storeUserNums } = userNumbersSlice.actions;
+export const { yourUserNums } = userNumbersSlice.actions;
 
 export default userNumbersSlice.reducer;

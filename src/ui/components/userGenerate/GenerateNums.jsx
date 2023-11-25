@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { storeUserNums } from '../../../common/features/userNumbersSlice';
+import { yourUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
 import ModalPopUp from '../modal/ModalPopUp';
 
@@ -32,7 +32,7 @@ export default function GenerateNums() {
     })
     if (fiveGoodInputNum === 5) {
       setUserNums(userNums);
-      dispatch(storeUserNums(userNums));
+      dispatch(yourUserNums(userNums));
     }
   }
 
