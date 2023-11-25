@@ -12,7 +12,9 @@ export default function ModalPopUp(props) {
 
   const clickHandler = () => {
     dispatch(showModal(false));
-    setState(false);
+    if (setState) {
+      setState(false);
+    }
   }
 
   if (!isOpen) {
