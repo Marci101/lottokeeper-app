@@ -21,18 +21,18 @@ export default function GenerateNums() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let fiveGoodInputNum = 0;
+    let fiveGoodNumInput = 0;
     const numbers = Object.values(userNums);
     numbers.forEach((num) => {
       if(isNaN(parseInt(num)) || numbers.length !== 5 || num < 1 || num > 39) {
         setError(true);
       } else {
-        fiveGoodInputNum++;
+        fiveGoodNumInput++;
       }
     })
-    if (fiveGoodInputNum === 5) {
+    if (fiveGoodNumInput === 5) {
       setUserNums(userNums);
-      dispatch(yourUserNums(userNums));
+      dispatch(yourUserNums(Object.values(userNums)));
     }
   }
 

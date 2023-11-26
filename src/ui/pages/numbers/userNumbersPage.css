@@ -1,6 +1,7 @@
 #user-numbers ul {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 25px 30px;
