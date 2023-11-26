@@ -1,28 +1,58 @@
 #user-page {
   display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 30px;
   width: 100%;
-  padding-top: 20px;
+  padding: 20px 5px 0;
 }
 
 #user-page section {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  align-items: center;
 }
 
 #user-page #guess-nums {
-  flex-grow: 2;
+  text-align: center;
+}
+
+#user-page #guess-nums #user-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+#user-page #guess-nums #user-name p {
+  margin: 0;
+}
+
+#user-page #guess-nums #generate-nums form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+#user-page #guess-nums #generate-nums form input {
+  width: 29px;
+}
+
+#user-page #guess-nums #generate-nums form button {
+  width: 50%;
+  margin-top: 9px;
+  padding: 2px 0;
+  border-radius: 3px;
+  border: 1px solid #0000004f;
 }
 
 #user-page #group-buttons ul {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  list-style: none;
+  align-items: center;
+  gap: 18px;
   margin: 0;
-  padding: 25px 30px;
-}
-
-#user-page section:nth-child(1) ul .button-rounded {
-  margin-bottom: 18px;
+  padding: 0;
+  list-style: none;
 }

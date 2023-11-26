@@ -26,6 +26,7 @@ export default function FormYourName(props) {
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
         placeholder={buttonText === "Enter" ? "Your nickname..." : "Edit your name..."}
+        maxLength="18"
         autoFocus
         name="yourName"
         autoComplete="off"
