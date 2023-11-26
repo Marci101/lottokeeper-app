@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { yourUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
 import ModalPopUp from '../modal/ModalPopUp';
+import { getCurrentDate } from '../../../common/utils/currentDate';
 
 export default function GenerateNums() {
   const [userNums, setUserNums] = useState({});
@@ -32,7 +33,7 @@ export default function GenerateNums() {
     })
     if (fiveGoodNumInput === 5) {
       setUserNums(userNums);
-      dispatch(yourUserNums(Object.values(userNums)));
+      dispatch(yourUserNums({userNums: Object.values(userNums), date: getCurrentDate()}));
     }
   }
 

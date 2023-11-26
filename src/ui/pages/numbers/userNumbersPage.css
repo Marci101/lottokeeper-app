@@ -1,8 +1,118 @@
+#user-numbers {
+  padding-top: 20px;
+}
+
+#user-numbers .page-hint {
+  max-width: 206px;
+  margin: 0 auto 14px;
+  padding: 0 12px;
+  text-align: center;
+}
+
 #user-numbers ul {
   display: flex;
   justify-content: center;
   flex-direction: column;
   list-style: none;
   margin: 0;
-  padding: 25px 30px;
+  padding: 0;
+}
+
+#user-numbers .data-of-betting {
+  max-height: calc(100vh - 386px);
+  overflow-y: auto;
+  justify-content: unset;
+  padding: 3px 6px;
+  border: 1px solid #ffffffbf;
+}
+
+#user-numbers .data-of-betting li {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #8383835e;
+}
+
+#user-numbers .data-of-betting li:last-child {
+  border-bottom: none;
+}
+
+#user-numbers .data-of-betting li .numbers {
+  margin: 9px 0 9px;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+#user-numbers .data-of-betting li .numbers span {
+  margin: 0 8px;
+}
+
+#user-numbers .data-of-betting li .timedata p {
+  margin: 3px 0 0;
+}
+
+#user-numbers .data-of-betting li .timedata .time-of-bet {
+  font-size: 12px;
+}
+
+#user-numbers .data-of-betting li .timedata .timestamp {
+  font-size: 14px;
+}
+
+#user-numbers .button-back {
+  align-items: center;
+  margin-top: 15px;
+}
+
+@media only screen and (min-width: 580px) {
+  #user-numbers {
+    padding-top: 30px;
+  }
+
+  #user-numbers .page-hint {
+    max-width: unset;
+    margin: 0 auto 21px;
+  }
+
+  #user-numbers ul {
+    justify-content: center;
+  }
+
+  #user-numbers .data-of-betting {
+    max-height: calc(100vh - 346px);
+    padding: 3px 12px;
+  }
+
+  #user-numbers .data-of-betting li {
+    flex-direction: row-reverse;
+  }
+
+  #user-numbers .data-of-betting li .numbers {
+    margin: 21px 12px 21px 0;
+  }
+
+  #user-numbers .data-of-betting li .numbers span {
+    margin: 0 11px;
+  }
+
+  #user-numbers .data-of-betting li .numbers span:first-child {
+    margin: 0 16px 0 0;
+  }
+
+  #user-numbers .data-of-betting li .timedata p {
+    margin: 3px 0;
+  }
+
+  #user-numbers .data-of-betting li .timedata .timestamp {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  #user-numbers .data-of-betting li .numbers {
+    font-size: 23px;
+  }
+
+  #user-numbers .data-of-betting li .numbers span {
+    margin: 0 16px;
+  }
 }

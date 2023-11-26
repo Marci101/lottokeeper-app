@@ -9,8 +9,13 @@ export const userNumbersSlice = createSlice({
   initialState,
   reducers: {
     yourUserNums: (state, action) => {
-      const newState = [...state.userNumbers, action.payload];
-      state.userNumbers = newState;
+      return { 
+        ...state, 
+        userNumbers: [
+          ...state.userNumbers,
+          action.payload
+        ]
+      }
     }
   },
 });
