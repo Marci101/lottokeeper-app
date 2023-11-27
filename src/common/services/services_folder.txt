@@ -1,1 +1,0 @@
-The services folder contains modules responsible for APIs, network requests, or other external service integrations.

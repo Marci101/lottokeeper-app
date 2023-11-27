@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../../common/features/modalSlice";
+import YourBalance from "../../components/balance/YourBalance";
 import ButtonRounded from "../../components/button/ButtonRounded";
 import GenerateNums from "../../components/userGenerate/GenerateNums";
 import ModalPopUp from "../../components/modal/ModalPopUp";
@@ -22,6 +23,7 @@ export default function UserPage() {
           <ButtonRounded buttonText="Your Numbers" link="numbers" />
         </ul>
       </section>
+      <YourBalance />
       <section id="guess-nums">
         <div id="user-name">
           <p>Let&apos;s go,&nbsp;</p>

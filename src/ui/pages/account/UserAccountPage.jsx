@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import ButtonRounded from '../../components/button/ButtonRounded';
 import FormYourName from '../../components/form/FormYourName';
+import YourBalance from '../../components/balance/YourBalance';
 import './UserAccountPage.css';
 
 export default function UserAccountPage() {
@@ -12,9 +13,7 @@ export default function UserAccountPage() {
         <p>Your nickname:&nbsp;</p><p id="your-nickname">{userName ? userName : "Fortune Hunter"}</p>
       </div>
       <FormYourName buttonText='Edit' />
-      <div className="balance">
-        <p>Your balance:&nbsp;</p><p className="your-balance">{`${ "10.000" }`}&nbsp;Akce</p>
-      </div>
+      <YourBalance />
       <ul>
         <ButtonRounded buttonText='Back' link='/user' />
       </ul>

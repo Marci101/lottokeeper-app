@@ -10,6 +10,6 @@
   background-color: #ffffff5c;
 }
 
-#layout div:nth-child(2){
+#layout > div:nth-child(2){
   flex-grow: 1;
 }

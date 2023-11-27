@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
-  gap: 30px;
   width: 100%;
   padding: 20px 5px 0;
 }
@@ -42,6 +41,10 @@
   font-weight: 900;
 }
 
+#user-page #balance {
+  margin: 16px 0 16px;
+}
+
 #user-page #group-buttons ul {
   display: flex;
   flex-direction: column;
@@ -55,5 +58,11 @@
 @media only screen and (min-width: 610px) {
   #user-page {
     padding: 75px 5px 0;
+  }
+}
+
+@media only screen and (max-height: 570px) {
+  #user-page {
+    padding: 5px 5px 0;
   }
 }

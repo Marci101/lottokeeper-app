@@ -5,8 +5,7 @@
   padding: 20px 10px 0;
 }
 
-#user-account #your-name,
-#user-account .balance {
+#user-account #your-name {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -15,17 +14,15 @@
   margin: 16px 0;
 }
 
-#user-account #your-name p,
-#user-account .balance p {
+#user-account #your-name p {
   margin: 0;
 }
 
-#user-account #your-name #your-nickname,
-#user-account .balance .your-balance {
+#user-account #your-name #your-nickname {
   font-weight: 900;
 }
 
-#user-account .balance {
+#user-account #balance {
   margin: 26px 0 16px;
 }
 
