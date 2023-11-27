@@ -31,7 +31,7 @@ export default function UserPage() {
         <p>Choose from <span>1</span> to <span>39</span>!</p>
         <GenerateNums />
       </section>
-      {!userName && <ModalPopUp withInput={true} />}
+      {!userName && <ModalPopUp withInputField={true} />}
     </div>
   );
 }

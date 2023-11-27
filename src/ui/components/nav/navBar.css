@@ -1,6 +1,6 @@
 #nav-bar {
-  width: 100vw;
-  background-color: white;
+  max-width: 1350px;
+  margin: auto;
 }
 
 #nav-bar ul {
@@ -19,6 +19,7 @@
   font-weight: 900;
   line-height: 1.0;
   text-align: center;
+  text-shadow: 6px 3px 8px #979797b8;
 }
 
 #nav-bar ul #logo a {

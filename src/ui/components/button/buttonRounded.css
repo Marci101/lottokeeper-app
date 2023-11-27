@@ -9,6 +9,8 @@
   color: #334155;
   text-decoration: none;
   white-space: nowrap;
+  box-shadow: 6px 3px 8px #9797977a;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button-rounded.yellow a {
@@ -19,4 +21,20 @@
 .button-rounded.black a {
   background-color: #000000;
   color: #ffffff;
+}
+
+.button-rounded.white a {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: unset
+}
+
+.button-rounded a:active {
+  box-shadow: 1px 1px 4px #979797;
+  transform: translateY(2.5px);
+}
+
+.button-rounded.white a:active {
+  box-shadow: unset;
 }

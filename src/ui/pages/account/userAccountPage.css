@@ -36,3 +36,9 @@
     margin: 0;
     padding: 25px 30px;
 }
+
+@media only screen and (min-width: 610px) {
+  #user-account {
+    padding: 75px 10px 0;
+  }
+}
