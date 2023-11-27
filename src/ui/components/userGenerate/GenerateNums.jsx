@@ -4,6 +4,7 @@ import { yourUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
 import ModalPopUp from '../modal/ModalPopUp';
 import { getCurrentDate } from '../../../common/utils/currentDate';
+import "./generateNums.css";
 
 export default function GenerateNums() {
   const [userNums, setUserNums] = useState({});
