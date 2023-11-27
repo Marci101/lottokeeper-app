@@ -28,9 +28,17 @@
   margin: 0;
 }
 
+#user-page #guess-nums #user-name #nickname {
+  font-weight: 900;
+}
+
 #user-page #guess-nums p {
   margin-top: 0;
   text-align: center;
+}
+
+#user-page #guess-nums p span {
+  font-weight: 900;
 }
 
 #user-page #group-buttons ul {

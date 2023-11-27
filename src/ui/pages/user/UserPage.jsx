@@ -25,10 +25,10 @@ export default function UserPage() {
       <section id="guess-nums">
         <div id="user-name">
           <p>Let&apos;s go,&nbsp;</p>
-          <p>{userName ? `${userName}!` : "Fortune Hunter!"}</p>
+          <p id="nickname">{userName ? `${userName}!` : "Fortune Hunter!"}</p>
         </div>
         <p>Guess the winning numbers!</p>
-        <p>Choose from 1 to 39!</p>
+        <p>Choose from <span>1</span> to <span>39</span>!</p>
         <GenerateNums />
       </section>
       {!userName && <ModalPopUp withInput={true} />}
