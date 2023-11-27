@@ -28,6 +28,11 @@
   margin: 0;
 }
 
+#user-page #guess-nums p {
+  margin-top: 0;
+  text-align: center;
+}
+
 #user-page #guess-nums #generate-nums form {
   display: flex;
   flex-wrap: wrap;
@@ -37,6 +42,10 @@
 
 #user-page #guess-nums #generate-nums form input {
   width: 29px;
+  height: 29px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
 }
 
 #user-page #guess-nums #generate-nums form button {

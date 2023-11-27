@@ -40,11 +40,19 @@ export default function GenerateNums() {
   return (
     <section id="generate-nums">
       <form onSubmit={handleSubmit}>
-        <input type="number" name="bet1" value={userNums.bet1 || ""} onChange={handleChange} min="1" max="39" required></input>
-        <input type="number" name="bet2" value={userNums.bet2 || ""} onChange={handleChange} min="1" max="39" required></input>
-        <input type="number" name="bet3" value={userNums.bet3 || ""} onChange={handleChange} min="1" max="39" required></input>
-        <input type="number" name="bet4" value={userNums.bet4 || ""} onChange={handleChange} min="1" max="39" required></input>
-        <input type="number" name="bet5" value={userNums.bet5 || ""} onChange={handleChange} min="1" max="39" required></input>
+        {[...Array(5)].map((item, index) => (
+          <input
+            key={index}
+            type="number"
+            name={`bet${index + 1}`}
+            value={(userNums[userNums.bet + `${index + 1}`])}
+            onChange={handleChange}
+            min="1"
+            max="39"
+            maxLength="2"
+            required
+            autoComplete="off" />
+        ))}
         <button type="submit">My bet!</button>
       </form>
       {error && <ModalPopUp setState={setError} />}
