@@ -1,0 +1,25 @@
+#form-your-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+
+#form-your-name input {
+  height: 29px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+}
+
+#form-your-name button {
+  width: 50px;
+  height: 29px;
+  padding: 2px 0;
+  font-weight: 600;
+  color: #334155;
+  border-radius: 5px;
+  border: 1px solid #0000004f;
+}

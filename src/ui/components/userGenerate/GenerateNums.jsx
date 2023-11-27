@@ -54,7 +54,7 @@ export default function GenerateNums() {
             required
             autoComplete="off" />
         ))}
-        <button type="submit">My bet!</button>
+        <button type="submit">Bet!</button>
       </form>
       {error && <ModalPopUp setState={setError} />}
     </section>

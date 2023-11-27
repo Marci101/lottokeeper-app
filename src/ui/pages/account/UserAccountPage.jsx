@@ -9,10 +9,12 @@ export default function UserAccountPage() {
   return (
     <div id="user-account">
       <div id="your-name">
-        <p>Your nickname:&nbsp;</p><p id="your-nickname">{userName}</p>
+        <p>Your nickname:&nbsp;</p><p id="your-nickname">{userName ? userName : "Fortune Hunter"}</p>
       </div>
       <FormYourName buttonText='Edit' />
-      <p>Your balance: 10.000 Akce</p>
+      <div className="balance">
+        <p>Your balance:&nbsp;</p><p className="your-balance">{`${ "10.000" }`}&nbsp;Akce</p>
+      </div>
       <ul>
         <ButtonRounded buttonText='Back' link='/user' />
       </ul>

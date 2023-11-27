@@ -17,6 +17,8 @@
 }
 
 #modal #modal-message p {
+  margin: 18px 0;
+  text-align: center;
   line-height: 1.7;
   color: #ffffff;
   white-space: pre;

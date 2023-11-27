@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../../common/features/modalSlice";
 import { enterUserName } from "../../../common/features/userNameSlice";
+import "./formYourName.css";
 
 export default function FormYourName(props) {
   const { buttonText } = {...props};
@@ -20,7 +21,7 @@ export default function FormYourName(props) {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form id="form-your-name" onSubmit={submitHandler}>
       <input
         type="text"
         value={userName}
