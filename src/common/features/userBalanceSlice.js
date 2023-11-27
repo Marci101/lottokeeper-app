@@ -8,15 +8,19 @@ export const userBalanceSlice = createSlice({
   name: "yourBalance",
   initialState,
   reducers: {
-    increaseByAmount: (state, action) => {
+    increaseBalance: (state, action) => {
       state.userBalance += action.payload;
     },
-    decrease: (state) => {
-      state.userBalance -= 500;
+    decreaseBalance: (state) => {
+      if(state.userBalance >= 500) {
+        state.userBalance -= 500; 
+      } else {
+        state.userBalance;
+      }
     },
   },
 });
 
-export const { increaseByAmount, decrease } = userBalanceSlice.actions;
+export const { increaseBalance, decreaseBalance } = userBalanceSlice.actions;
 
 export default userBalanceSlice.reducer;

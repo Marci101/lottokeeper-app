@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { yourUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
-import { decrease } from "../../../common/features/userBalanceSlice";
+import { decreaseBalance } from "../../../common/features/userBalanceSlice";
 import ModalPopUp from '../modal/ModalPopUp';
 import { getCurrentDate } from '../../../common/utils/currentDate';
 import "./generateNums.css";
@@ -10,10 +10,15 @@ import "./generateNums.css";
 export default function GenerateNums() {
   const [userNums, setUserNums] = useState({});
   const [error, setError] = useState(false);
+  const yourBalance = useSelector((state) => state.yourBalance.userBalance);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showModal({isOpen: error, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!"}));
+    if (yourBalance < 500) {
+      dispatch(showModal({isOpen: error, message: "Sorry!\nYour balance is too low!\nYou can not place a new bet!"}));
+    } else {
+      dispatch(showModal({isOpen: error, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!"}));
+    }
   }, [error]);
 
   const handleChange = (e) => {
@@ -36,8 +41,11 @@ export default function GenerateNums() {
     if (fiveGoodNumInput === 5) {
       setUserNums(userNums);
       dispatch(yourUserNums({userNums: Object.values(userNums), date: getCurrentDate()}));
-      console.log("DESC!");
-      dispatch(decrease());
+      if (yourBalance >= 500) {
+        dispatch(decreaseBalance());
+      } else {
+        setError(true);
+      }
     }
   }
 
