@@ -5,17 +5,14 @@ import FormYourName from '../form/FormYourName';
 import ButtonRounded from "../button/ButtonRounded";
 import "./modalPopUp.css";
 
-export default function ModalPopUp(props) {
-  const { setState, withInputField } = {...props};
-  const dispatch = useDispatch();
+export default function ModalPopUp() {
   const isOpen = useSelector((state) => state.modal.isOpen);
   const message = useSelector((state) => state.modal.message);
+  const withInputField = useSelector((state) => state.modal.withInputField);
+  const dispatch = useDispatch();
 
   const clickHandler = () => {
-    dispatch(showModal(false));
-    if (setState) {
-      setState(false);
-    }
+    dispatch(showModal({isOpen: false, message: "", withInputField: false}));
   }
 
   if (!isOpen) {
@@ -27,8 +24,8 @@ export default function ModalPopUp(props) {
         <p>{message}</p>
         {withInputField && <FormYourName buttonText='Enter' />}
       </div>
-      <ul id="modal-close">
-        <ButtonRounded clickHandler={clickHandler} buttonText='Close!' link='#' color="white"/>
+      <ul id="modal-close" onClick={clickHandler}>
+        <ButtonRounded buttonText='Close!' link='#' color="white"/>
       </ul>
     </div>,
     document.getElementById("portal")

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isOpen: false,
   message: '',
+  withInputField: false,
 };
 
 export const modalSlice = createSlice({
@@ -12,6 +13,7 @@ export const modalSlice = createSlice({
     showModal: (state, action) => {
       state.isOpen = action.payload.isOpen;
       state.message = action.payload.message;
+      state.withInputField = action.payload.withInputField;
     },
   },
 });

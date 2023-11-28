@@ -4,7 +4,6 @@ import { showModal } from "../../../common/features/modalSlice";
 import YourBalance from "../../components/balance/YourBalance";
 import ButtonRounded from "../../components/button/ButtonRounded";
 import GenerateNums from "../../components/userGenerate/GenerateNums";
-import ModalPopUp from "../../components/modal/ModalPopUp";
 import "./userPage.css";
 
 export default function UserPage() {
@@ -12,7 +11,9 @@ export default function UserPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(showModal({isOpen: true, message: "Welcome, Fortune Hunter!\nPlease, enter your name first!"}));
+    if(!userName) {
+      dispatch(showModal({isOpen: true, message: "Welcome, Fortune Hunter!\nPlease, enter your name first!", withInputField: true}));
+    }
   }, []);
 
   return (
@@ -33,7 +34,6 @@ export default function UserPage() {
         <p>Choose from <span>1</span> to <span>39</span>!</p>
         <GenerateNums />
       </section>
-      {!userName && <ModalPopUp withInputField={true} />}
     </div>
   );
 }

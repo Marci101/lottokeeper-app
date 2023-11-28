@@ -17,7 +17,7 @@ export default function FormYourName(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(enterUserName(userName));
-    dispatch(showModal(false));
+    dispatch(showModal({isOpen: false, message: "", withInputField: false}));
   };
 
   return (

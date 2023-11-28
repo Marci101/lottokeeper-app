@@ -1,25 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { yourUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
 import { decreaseBalance } from "../../../common/features/userBalanceSlice";
-import ModalPopUp from '../modal/ModalPopUp';
 import { getCurrentDate } from '../../../common/utils/currentDate';
 import "./generateNums.css";
 
 export default function GenerateNums() {
   const [userNums, setUserNums] = useState({});
-  const [error, setError] = useState(false);
-  const yourBalance = useSelector((state) => state.yourBalance.userBalance);
+  const enoughBalance = useSelector((state) => state.yourBalance.enoughBalance);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (yourBalance < 500) {
-      dispatch(showModal({isOpen: error, message: "Sorry!\nYour balance is too low!\nYou can not place a new bet!"}));
-    } else {
-      dispatch(showModal({isOpen: error, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!"}));
-    }
-  }, [error]);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -33,19 +23,18 @@ export default function GenerateNums() {
     const numbers = Object.values(userNums);
     numbers.forEach((num) => {
       if(isNaN(parseInt(num)) || numbers.length !== 5 || num < 1 || num > 39) {
-        setError(true);
+        dispatch(showModal({isOpen: true, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!", withInputField: false}));
       } else {
         fiveGoodNumInput++;
       }
     })
     if (fiveGoodNumInput === 5) {
-      setUserNums(userNums);
-      dispatch(yourUserNums({userNums: Object.values(userNums), date: getCurrentDate()}));
-      if (yourBalance >= 500) {
-        dispatch(decreaseBalance());
-      } else {
-        setError(true);
+      if (enoughBalance) {
+        setUserNums(userNums);
+        dispatch(yourUserNums({userNums: Object.values(userNums), date: getCurrentDate()}));
+        dispatch(showModal({isOpen: false, message: "", withInputField: false}));
       }
+      dispatch(decreaseBalance());
     }
   }
 
@@ -67,7 +56,6 @@ export default function GenerateNums() {
         ))}
         <button type="submit">Bet!</button>
       </form>
-      {error && <ModalPopUp setState={setError} />}
     </section>
   );
 }
