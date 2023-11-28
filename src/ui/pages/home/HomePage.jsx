@@ -5,7 +5,7 @@ export default function HomePage() {
     <div id="home-page">
       <p>Welcome to the Game!</p>
       <p id="main-prize">Grab the chance and aim the main prize!</p>
-      <p>Go further!</p>
+      <p>Keep going further!</p>
     </div>
   );
 }
