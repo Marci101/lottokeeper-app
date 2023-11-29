@@ -12,7 +12,7 @@ export default function YourBalance() {
 
   useEffect(() => {
     if (yourBalance < 500 && propagate) {
-      dispatch(showModal({isOpen: true, message: "Sorry!\nYour balance is too low!\nYou can not place a new bet!", withInputField: false}));
+      dispatch(showModal({isOpen: true, message: "Your balance has run out!\nIt was your last bet!\nWe hope you will win!", withInputField: false}));
       dispatch(doNotPropagateTooLowBalance(false));
       dispatch(enoughBalance(false));
     }
