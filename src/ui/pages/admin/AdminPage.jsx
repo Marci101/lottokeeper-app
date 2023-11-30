@@ -31,7 +31,7 @@ export default function AdminPage() {
       </section>
       <section className="reset-buttons">
         <ul onClick={clickHandlerNewGame}>
-          <ButtonRounded buttonText="Start New Game!" link="#" />
+          <ButtonRounded buttonText="Start New Game!" link="user" />
         </ul>
       </section>
       <section className="reset-buttons">
