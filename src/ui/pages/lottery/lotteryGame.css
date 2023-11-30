@@ -1,3 +1,25 @@
 #lottery-game {
+  display: flex;
+  flex-direction: column;
   padding: 20px 5px 0;
+  text-align: center
+}
+
+#lottery-game .button-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 35px 0;
+  padding: 0;
+  list-style: none;
+}
+
+#lottery-game p:first-child {
+  font-weight: 900;
+}
+
+@media only screen and (min-width: 610px) {
+  #lottery-game {
+    padding: 75px 5px 0;
+  }
 }

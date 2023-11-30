@@ -16,10 +16,13 @@ export const userNumbersSlice = createSlice({
           action.payload
         ]
       }
+    },
+    resetAllUserNums: (state) => {
+      state.userNumbers = initialState.userNumbers;
     }
   },
 });
 
-export const { yourUserNums } = userNumbersSlice.actions;
+export const { yourUserNums, resetAllUserNums } = userNumbersSlice.actions;
 
 export default userNumbersSlice.reducer;

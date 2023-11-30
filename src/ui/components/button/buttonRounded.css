@@ -3,13 +3,15 @@
   max-width: fit-content;
   padding: 0.75rem 1.95rem;
   border: 1px solid #000000;
-  border-radius: 26px;
+  border-radius: 50px;
   font-size: 0.95rem;
   font-weight: bold;
   color: #334155;
+  text-align: center;
   text-decoration: none;
   white-space: nowrap;
   box-shadow: 6px 3px 8px #9797977a;
+  white-space: break-spaces;
   -webkit-tap-highlight-color: transparent;
 }
 

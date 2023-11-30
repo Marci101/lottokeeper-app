@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  userBalance: 1000,
+  userBalance: (JSON.parse(localStorage.getItem("balanceOfUser") ?? 10000)),
   enoughBalance: true,
   propagate: true,
 };
@@ -16,6 +16,7 @@ export const userBalanceSlice = createSlice({
     decreaseBalance: (state) => {
       if(state.userBalance >= 500) {
         state.userBalance -= 500;
+        localStorage.setItem('balanceOfUser', JSON.stringify(state.userBalance));
         state.enoughBalance = true;
       } else {
         state.userBalance;
@@ -28,9 +29,13 @@ export const userBalanceSlice = createSlice({
     doNotPropagateTooLowBalance: (state, action) => {
       state.propagate = action.payload;
     },
+    resetBalance: (state) => {
+      localStorage.removeItem("balanceOfUser");
+      state.userBalance = initialState.userBalance;
+    },
   },
 });
 
-export const { increaseBalance, decreaseBalance, enoughBalance, doNotPropagateTooLowBalance } = userBalanceSlice.actions;
+export const { increaseBalance, decreaseBalance, enoughBalance, doNotPropagateTooLowBalance, resetBalance } = userBalanceSlice.actions;
 
 export default userBalanceSlice.reducer;

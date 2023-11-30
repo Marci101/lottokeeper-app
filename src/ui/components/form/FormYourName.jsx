@@ -18,6 +18,7 @@ export default function FormYourName(props) {
     e.preventDefault();
     dispatch(enterUserName(userName));
     dispatch(showModal({isOpen: false, message: "", withInputField: false}));
+    localStorage.setItem('nameOfUser', JSON.stringify(userName));
   };
 
   return (

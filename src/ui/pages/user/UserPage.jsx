@@ -30,7 +30,7 @@ export default function UserPage() {
           <p>Let&apos;s go,&nbsp;</p>
           <p id="nickname">{userName ? `${userName}!` : "Fortune Hunter!"}</p>
         </div>
-        <p>Guess the winning numbers!</p>
+        <p>Guess the Winning Numbers!</p>
         <p>Choose from <span>1</span> to <span>39</span>!</p>
         <GenerateNums />
       </section>
