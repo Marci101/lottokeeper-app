@@ -5,7 +5,7 @@ import UserPage from './ui/pages/user/UserPage';
 import UserAccountPage from './ui/pages/account/UserAccountPage';
 import UserNumbersPage from './ui/pages/numbers/UserNumbersPage';
 import AdminPage from './ui/pages/admin/AdminPage';
-import LotteryGame from './ui/pages/lottery/LotteryGame';
+import LotteryGame from './ui/pages/lottery-draw/LotteryGame';
 import NotFoundPage from './ui/pages/notFound/NotFoundPage';
 
 export default function App() {
