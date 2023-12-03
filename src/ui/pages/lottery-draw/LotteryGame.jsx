@@ -1,5 +1,5 @@
 import ButtonRounded from "../../components/button/ButtonRounded";
-import AutoGenerateNums from "../../components/adminGenerate/autoGenerateNums";
+import AutoGenerateNums from "../../components/adminGenerate/AutoGenerateNums";
 import "./lotteryGame.css";
 
 export default function LotteryGame() {
