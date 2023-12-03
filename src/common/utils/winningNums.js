@@ -1,4 +1,4 @@
-export const foundWinningNums = (winningNums, userNumbers) => {
+export const filterWinningNums = (winningNums, userNumbers) => {
 
   console.log("RUNS!");
 

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import ButtonRounded from '../../components/button/ButtonRounded';
-import { foundWinningNums } from "../../../common/utils/foundWinningNums";
+import { filterWinningNums } from "../../../common/utils/winningNums";
 import './userNumbersPage.css';
 
 export default function UserNumbersPage() {
@@ -11,7 +11,7 @@ export default function UserNumbersPage() {
 
   if((typeof winningNumbers[0] === "number") && userNumbers.length > 0) {
 
-    foundWinningNums(winningNumbers, userNumbers);
+    filterWinningNums(winningNumbers, userNumbers);
   }
 
 

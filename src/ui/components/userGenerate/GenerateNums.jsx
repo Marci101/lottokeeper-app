@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { yourUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
 import { decreaseBalance } from "../../../common/features/userBalanceSlice";
 import { getCurrentDate } from '../../../common/utils/currentDate';
+import { validateUiqueUserNums } from "../../../common/utils/uniqueNums";
 import "./generateNums.css";
 
 export default function GenerateNums() {
   const [userNums, setUserNums] = useState({});
+  const [uniqueUserNums, setUniqueUserNums ] = useState(false);
   const enoughBalance = useSelector((state) => state.yourBalance.enoughBalance);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const uniqueNums = validateUiqueUserNums(Object.values(userNums));
+    setUniqueUserNums(uniqueNums);
+  }, [userNums]);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -22,8 +29,8 @@ export default function GenerateNums() {
     let fiveGoodNumInput = 0;
     const numbers = Object.values(userNums);
     numbers.forEach((num) => {
-      if(isNaN(num) || numbers.length !== 5 || num < 1 || num > 39) {
-        dispatch(showModal({isOpen: true, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!", withInputField: false}));
+      if(!uniqueUserNums || isNaN(num) || numbers.length !== 5 || num < 1 || num > 39) {
+        dispatch(showModal({isOpen: true, message: "Something went wrong!\nPlease, enter 5 unique numbers!\nChoose from 1 to 39!", withInputField: false}));
       } else {
         fiveGoodNumInput++;
       }
