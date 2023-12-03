@@ -14,7 +14,7 @@ export default function GenerateNums() {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setUserNums({...userNums, [name]: value});
+    setUserNums({...userNums, [name]: parseInt(value)});
   }
 
   const handleSubmit = (e) => {
@@ -22,7 +22,7 @@ export default function GenerateNums() {
     let fiveGoodNumInput = 0;
     const numbers = Object.values(userNums);
     numbers.forEach((num) => {
-      if(isNaN(parseInt(num)) || numbers.length !== 5 || num < 1 || num > 39) {
+      if(isNaN(num) || numbers.length !== 5 || num < 1 || num > 39) {
         dispatch(showModal({isOpen: true, message: "Something went wrong!\nPlease, enter 5 numbers! Choose from 1 to 39!", withInputField: false}));
       } else {
         fiveGoodNumInput++;

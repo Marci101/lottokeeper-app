@@ -1,4 +1,4 @@
-export const filterSameArray = (compareThese) => {
+export const handleSameArrays = (compareThese) => {
 
   if(compareThese.length > 1) {
     
@@ -12,13 +12,13 @@ export const filterSameArray = (compareThese) => {
         const comperative = [...compareThese[j]];
         comperative.sort((a, b) => a - b);
   
-        let allTheSame = 0;
+        let foundSame = 0;
         for (let index = 0; index < base.length; index++) {
   
           if(base[index] === comperative[index]) {
-            allTheSame++;
+            foundSame++;
   
-            if(allTheSame === base.length) {
+            if(foundSame === base.length) {
               compareThese.splice(j, 1)
             }
           }
@@ -26,6 +26,5 @@ export const filterSameArray = (compareThese) => {
       }
     }
   }
-
   return compareThese;
 }
