@@ -16,6 +16,7 @@ export default function AdminPage() {
     dispatch(resetAllUserNums());
     dispatch(resetUserName());
     dispatch(resetBalance());
+    localStorage.clear();
   }
 
   return (

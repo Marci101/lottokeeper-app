@@ -1,5 +1,4 @@
 export const calculatePrize = (hit) => {
-  console.log("hit",hit);
   let prize = 0;
   switch (hit) {
     case 2:

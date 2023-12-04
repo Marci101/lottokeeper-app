@@ -7,8 +7,10 @@ export default function UserNumbersPage() {
   const winningNumbers = useSelector((state) => state.winningNumbers.drawnWinningNums);
   const userNumbers = useSelector((state) => state.yourNumbers.userNumbers);
   const reversedUserNumbers = [...userNumbers].reverse(); console.log("reversedUserNumbers:::", reversedUserNumbers);
-  const descUserNumbers = [...userNumbers].sort((a, b) => ((b.hitNumbers.length) - (a.hitNumbers.length))); console.log("descUserNumbers",descUserNumbers);
-  const ascUserNumbers = [...userNumbers].sort((a, b) => ((a.hitNumbers.length) - (b.hitNumbers.length))); console.log("ascUserNumbers",ascUserNumbers);
+  if(userNumbers.hitNumbers) {
+    const descUserNumbers = [...userNumbers].sort((a, b) => ((b.hitNumbers.length) - (a.hitNumbers.length))); console.log("descUserNumbers",descUserNumbers);
+    const ascUserNumbers = [...userNumbers].sort((a, b) => ((a.hitNumbers.length) - (b.hitNumbers.length))); console.log("ascUserNumbers",ascUserNumbers);
+  }
 
   return (
     <div id="user-numbers">

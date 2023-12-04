@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  userBalance: (JSON.parse(localStorage.getItem("balanceOfUser") ?? 10000)),
+  userBalance: 10000,
   enoughBalance: true,
   propagate: true,
 };
@@ -30,7 +30,6 @@ export const userBalanceSlice = createSlice({
       state.propagate = action.payload;
     },
     resetBalance: (state) => {
-      localStorage.removeItem("balanceOfUser");
       state.userBalance = initialState.userBalance;
     },
   },
