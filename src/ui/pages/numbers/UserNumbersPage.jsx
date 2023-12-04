@@ -1,19 +1,14 @@
-import { useSelector } from 'react-redux';
-import ButtonRounded from '../../components/button/ButtonRounded';
-import { filterWinningNums } from "../../../common/utils/winningNums";
-import './userNumbersPage.css';
+import { useSelector } from "react-redux";
+import ButtonRounded from "../../components/button/ButtonRounded";
+import { calculatePrize } from "../../../common/utils/calculatePrize"
+import "./userNumbersPage.css";
 
 export default function UserNumbersPage() {
   const winningNumbers = useSelector((state) => state.winningNumbers.drawnWinningNums);
   const userNumbers = useSelector((state) => state.yourNumbers.userNumbers);
-  const reversedUserNumbers = [...userNumbers].reverse();
-
-
-  if((typeof winningNumbers[0] === "number") && userNumbers.length > 0) {
-
-    filterWinningNums(winningNumbers, userNumbers);
-  }
-
+  const reversedUserNumbers = [...userNumbers].reverse(); console.log("reversedUserNumbers:::", reversedUserNumbers);
+  const descUserNumbers = [...userNumbers].sort((a, b) => ((b.hitNumbers.length) - (a.hitNumbers.length))); console.log("descUserNumbers",descUserNumbers);
+  const ascUserNumbers = [...userNumbers].sort((a, b) => ((a.hitNumbers.length) - (b.hitNumbers.length))); console.log("ascUserNumbers",ascUserNumbers);
 
   return (
     <div id="user-numbers">
@@ -38,11 +33,14 @@ export default function UserNumbersPage() {
             </div>
           }
           <p className="page-hint with-nums">The list of your Lucky Numbers</p>
+          {(typeof winningNumbers[0] === "number") &&
+            <div id="order-list">ORDER</div>
+          }
         </>
       }
       {reversedUserNumbers.length > 0 &&
         <ul className="data-of-betting">
-          {[...reversedUserNumbers].map((num, index) => {
+          {reversedUserNumbers.map((num, index) => {
             return (
               <li key={index}>
                 <div className="timedata">
@@ -59,6 +57,22 @@ export default function UserNumbersPage() {
                     })
                   }
                 </p>
+                {(num.hitNumbers && num.hitNumbers.length > 0) &&
+                  <>
+                  <p className="numbers-hit">Numbers hit:
+                    {
+                      num.hitNumbers.map((hit, index) => {
+                        return (
+                          <span key={index}>
+                            {hit}
+                          </span>
+                        );
+                      })
+                    }
+                  </p>
+                  <p className="numbers-hit prize">Prize:&nbsp;<span>{`${calculatePrize(num.hitNumbers.length)}`}</span></p>
+                  </>
+                }
               </li>
             );
           })}

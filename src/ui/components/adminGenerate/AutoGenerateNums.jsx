@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUniqueNumsArray } from "../../../common/utils/createUniqueNumsArray";
+import { filterWinningNums } from "../../../common/utils/winningNums";
+import { updateUserNums } from "../../../common/features/userNumbersSlice";
 import { theWinningNums } from "../../../common/features/winningNumbersSlice";
 import "./autoGenerateNums.css";
 
 export default function AutoGenerateNums() {
   const [ winningNums, setWinningNums ] = useState([]);
+  const userNumbers = useSelector((state) => state.yourNumbers.userNumbers);
   const winningNumsStored = useSelector((state) => state.winningNumbers.drawnWinningNums);
   const dispatch = useDispatch();
   
@@ -19,6 +22,11 @@ export default function AutoGenerateNums() {
   useEffect(() => {
     if(winningNums.length) {
       dispatch(theWinningNums(winningNums));
+
+      if(userNumbers) {
+        const updatedUserNumbers = filterWinningNums(winningNums, userNumbers);
+        dispatch(updateUserNums(updatedUserNumbers));
+      }
     }
   }, [winningNums]);
 
@@ -31,7 +39,6 @@ export default function AutoGenerateNums() {
             type="number"
             name={`winningNum${index + 1}`}
             value={winningNums[index] || winningNumsStored[index]}
-            //onChange={handleChange}
             min="1"
             max="39"
             maxLength="2"

@@ -8,7 +8,7 @@ export const userNumbersSlice = createSlice({
   name: "yourNumbers",
   initialState,
   reducers: {
-    yourUserNums: (state, action) => {
+    saveUserNums: (state, action) => {
       return { 
         ...state, 
         userNumbers: [
@@ -17,12 +17,15 @@ export const userNumbersSlice = createSlice({
         ]
       }
     },
+    updateUserNums: (state, action) => {
+      state.userNumbers = action.payload;
+    },
     resetAllUserNums: (state) => {
       state.userNumbers = initialState.userNumbers;
     }
   },
 });
 
-export const { yourUserNums, resetAllUserNums } = userNumbersSlice.actions;
+export const { saveUserNums, updateUserNums, resetAllUserNums } = userNumbersSlice.actions;
 
 export default userNumbersSlice.reducer;

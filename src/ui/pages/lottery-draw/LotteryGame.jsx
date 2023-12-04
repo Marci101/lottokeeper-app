@@ -6,7 +6,7 @@ export default function LotteryGame() {
   
   return (
     <div id="lottery-game">
-      <p>Start draw the Winning Numbers!</p>
+      <p>Start draw Winning Numbers!</p>
       <AutoGenerateNums />
       <section>
         <ul className="button-back">

@@ -1,26 +1,22 @@
 export const filterWinningNums = (winningNums, userNumbers) => {
 
-  console.log("RUNS!");
-
-  const winningNumsCopy = [...winningNums];
-  winningNumsCopy.sort((a, b) => a - b);
+  let userNumbersCopy = new Array();
+  const compare = new Set(winningNums);
 
   for (let i = 0; i < userNumbers.length; i++) {
 
-    let userNumsCopy = [...userNumbers[i].userNums];
-    userNumsCopy.sort((a, b) => a - b);
+    let hitNumbers = new Array();
 
-    console.log("RUNS INSIDE1!", winningNumsCopy);
-    console.log("RUNS INSIDE2!", userNumsCopy);
+    for (let j = 0; j < winningNums.length; j++) {
+      const number = userNumbers[i].userNums[j];
 
-    //let foundSame = 0;
-    for (let j = 0; j < winningNumsCopy.length; j++) {  // "userPage" oldalon szűrd ki, hogy duplikátum legyen egy fogadás 5 számán belül 
-                                                        // egy fogadás 5 száma legyen mind egyedi! Nem lehet duplikáció benne!
-      if(winningNumsCopy[j] === userNumsCopy[j]) {
-        //foundSame++;
-        console.log("WINNER");
+      if (compare.has(number)) {
+        hitNumbers = [...hitNumbers, number];
       }
     }
+    let userNumbersObject = {...userNumbers[i], hitNumbers};
+    userNumbersCopy.push(userNumbersObject);
   }
-  //return userNumbersCopy;
+  return userNumbersCopy;
 }
+

@@ -1,5 +1,21 @@
 #user-numbers {
+  position: relative;
   padding-top: 20px;
+}
+
+#user-numbers #order-list {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 6px;
+  font-size: 9.5px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 1px 1px 3.5px #333333b8;
+  border: 1px solid #ffffffbf;
+  border-radius: 20px;
+  backdrop-filter: blur(100px) brightness(90%);
 }
 
 #user-numbers .winning-nums {
@@ -58,6 +74,7 @@
 }
 
 #user-numbers .data-of-betting li {
+  position: relative;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #8383835e;
@@ -68,13 +85,34 @@
 }
 
 #user-numbers .data-of-betting li .numbers {
-  margin: 9px 0 9px;
+  margin: 0px 0 18px;
   font-size: 21px;
   font-weight: 900;
 }
 
 #user-numbers .data-of-betting li .numbers span {
   margin: 0 8px;
+}
+
+#user-numbers .data-of-betting li .numbers-hit {
+  position: absolute;
+  bottom: 3.5px;
+  margin: 0;
+  font-size: 10px;
+}
+
+#user-numbers .data-of-betting li .numbers-hit span {
+  margin-left: 8px;
+  font-weight: 900;
+}
+
+#user-numbers .data-of-betting li .numbers-hit.prize {
+  right: 0;
+}
+
+#user-numbers .data-of-betting li .numbers-hit.prize span {
+  font-weight: 900;
+  margin: 0;
 }
 
 #user-numbers .data-of-betting li .timedata p {

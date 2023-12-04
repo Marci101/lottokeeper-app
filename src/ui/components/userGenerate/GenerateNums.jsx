@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { yourUserNums } from '../../../common/features/userNumbersSlice';
+import { saveUserNums } from '../../../common/features/userNumbersSlice';
 import { showModal } from "../../../common/features/modalSlice";
 import { decreaseBalance } from "../../../common/features/userBalanceSlice";
 import { getCurrentDate } from '../../../common/utils/currentDate';
@@ -38,7 +38,7 @@ export default function GenerateNums() {
     if (fiveGoodNumInput === 5) {
       if (enoughBalance) {
         setUserNums(userNums);
-        dispatch(yourUserNums({userNums: Object.values(userNums), date: getCurrentDate()}));
+        dispatch(saveUserNums({userNums: Object.values(userNums), date: getCurrentDate()}));
         dispatch(showModal({isOpen: false, message: "", withInputField: false}));
       }
       dispatch(decreaseBalance());
