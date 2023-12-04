@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  userName: "",
+  userName: (JSON.parse(localStorage.getItem("nameOfUser")) ?? ""),
 };
 
 export const userNameSlice = createSlice({
@@ -12,7 +12,7 @@ export const userNameSlice = createSlice({
       state.userName = action.payload;
     },
     resetUserName: (state) => {
-      state.userName = initialState.userName;
+      state.userName = "";
     }
   },
 });
