@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { resetAllUserNums } from '../../../common/features/userNumbersSlice';
 import { resetUserName } from "../../../common/features/userNameSlice";
 import { resetBalance } from "../../../common/features/userBalanceSlice";
+import { resetWinningNums } from '../../../common/features/winningNumbersSlice';
 import ButtonRounded from "../../components/button/ButtonRounded";
 import "./adminPage.css";
 
@@ -10,12 +11,14 @@ export default function AdminPage() {
 
   const clickHandlerNewGame = () => {
     dispatch(resetAllUserNums());
+    dispatch(resetWinningNums());
   }
 
   const clickHandlerResetAll = () => {
     dispatch(resetAllUserNums());
     dispatch(resetUserName());
     dispatch(resetBalance());
+    dispatch(resetWinningNums());
     localStorage.clear();
   }
 

@@ -10,10 +10,13 @@ export const winningNumbersSlice = createSlice({
   reducers: {
     theWinningNums: (state, action) => {
       state.drawnWinningNums = action.payload;
+    },
+    resetWinningNums: (state) => {
+      state.drawnWinningNums = initialState.drawnWinningNums;
     }
   },
 });
 
-export const { theWinningNums } = winningNumbersSlice.actions;
+export const { theWinningNums, resetWinningNums } = winningNumbersSlice.actions;
 
 export default winningNumbersSlice.reducer;
